@@ -33,7 +33,7 @@ const ToDoList = () => {
   };
 
   const toggleTaskCompletion = (index) => {
-    const newTasks = tasks.map((task, i) => 
+    const newTasks = tasks.map((task, i) =>
       i === index ? { ...task, completed: !task.completed } : task
     );
     setTasks(newTasks);
@@ -48,13 +48,14 @@ const ToDoList = () => {
   return (
     <div className="container mx-auto mt-10 max-w-xl p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
       <h1 className="text-2xl text-center text-gray-800 dark:text-white mb-4">To-Do List</h1>
-      <div className="flex mb-4">
+      <div className="flex flex-col sm:flex-row mb-4">
         <input
           type="text"
-          className="flex-1 p-2 rounded-l-lg border-t mr-0 border-b border-l text-gray-800 border-gray-700 dark:border-gray-200 dark:bg-white"
+          className="flex-1 p-2 rounded-l-lg border-t mr-0 sm:mr-2 mb-2 sm:mb-0 border-b border-l text-gray-800 border-gray-700 dark:border-gray-200 dark:bg-white"
           value={task}
           onChange={(e) => setTask(e.target.value)}
           onKeyDown={handleKeyDown}
+          placeholder="Enter a task..."
         />
         <button
           className="p-2 bg-blue-500 text-white rounded-r-lg flex items-center justify-center"
